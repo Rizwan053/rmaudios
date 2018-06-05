@@ -102,6 +102,7 @@ class PostController extends Controller
 
         $post =Post::findorFail($id);
         $post->update($input);
+        $post->save();
         return redirect()->route('posts.index')->with('update' ,'Post Updated Successfully');
     }
 

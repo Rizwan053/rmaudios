@@ -50,6 +50,7 @@
 
     </div>
 </div>
+</body>
 
-
+@yield('scripts')
 @include('includes.admin_footer')

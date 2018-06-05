@@ -1,4 +1,3 @@
-</body>
 
     <!--   Core JS Files   -->
     <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
@@ -41,7 +40,12 @@
 			// alert('fgd');
             });
 
+			  
     	});
+
+
+		
+		
 	</script>
 
 </html>

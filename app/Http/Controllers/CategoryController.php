@@ -14,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::paginate(10);
+        $categories = Category::paginate(10)->sortbyDesc('created_at');
         return view('admin.category.index', compact('categories'));
     }
 
@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -36,7 +36,8 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Category::create($request->all());
+        return redirect()->back()->withSuccess('Category Added Succesfully');
     }
 
     /**
@@ -70,7 +71,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category= Category::findorFail($id);
+
+        $category->update($request->all());
+
+        return redirect()->back()->withUpdate('Category Updated Succesfully');
     }
 
     /**
@@ -81,6 +86,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Category::findorFail($id)->delete();
+        return redirect()->back()->withDelete('Category Deleted Succesfully');
+        
     }
 }
