@@ -3,14 +3,35 @@
 						
 
 						<div class="subscribe-area">
+@if(session('success'))
+<p class="alert alert-success text-center">{{session('success')}}</p>
+@endif
+@if(count($errors)>0)
+<div class="alert alert-danger text-center">
+<ul>
+    @foreach($errors->all() as $error)
+<li>{{strtoupper($error)}}</li>
+    @endforeach
+</ul>
+</div>
+@endif
 
-							<h4 class="title"><b>SUBSCRIBE</b></h4>
+							<h4 class="title"><b>SUBSCRIBE NOW</b></h4>
+							
+
 							<div class="input-area">
-								<form>
-									<input class="email-input" type="text" placeholder="Enter your email">
-									<button class="submit-btn" type="submit"><i class="fas fa-envelope-square"></i></button>
-								</form>
+
+
+								{!!Form::open(['method'=>'POST','action'=>'SubscriberController@store']) !!}
+
+								{!! Form::text('email',null,['class'=>'email-input', 'placeholder'=>'Enter you Email']) !!}
+								{{ Form::button('<i class="fa fa-check-circle"></i>', ['type' => 'submit', 'class' => 'submit-btn'] )  }}
+
+								{!! Form::close() !!}
 							</div>
+							<br>
+						<h6 class="title"><b>Total Subscriber:</b> {{count($subscribers)}}</h6>
+							
 
 						</div><!-- subscribe-area -->
 

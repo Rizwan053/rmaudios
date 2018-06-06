@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
+use App\Subscriber;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class SubscriberController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::paginate(10)->sortbyDesc('created_at');
-        return view('admin.category.index', compact('categories'));
+        $subscribers = Subscriber::orderBy('created_at', 'desc')->paginate(10);
+
+        return view('admin.subscriber.index', compact('subscribers'));
     }
 
     /**
@@ -25,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -36,8 +37,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        Category::create($request->all());
-        return redirect()->back()->withSuccess('Category Added Succesfully');
+        $request->validate([
+            'email' => 'required|string|email|max:255',
+            
+        ]);
+
+        $input = $request->all();
+
+        $subscriber = Subscriber::create($input)->save();
+        return redirect()->back()->with('success','Subscribe Succesfully! Welcome to the Family');
+
     }
 
     /**
@@ -48,7 +57,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -71,11 +80,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category= Category::findorFail($id);
-
-        $category->update($request->all());
-
-        return redirect()->back()->withUpdate('Category Updated Succesfully');
+        //
     }
 
     /**
@@ -86,10 +91,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        Category::findorFail($id)->delete();
-        return redirect()->back()->withDelete('Category Deleted Succesfully');
-        
+        Subscriber::findorFail($id)->delete();
+        return redirect()->back()->with('delete','Subscriber Removed Succesfully !!');
     }
-
-    
 }

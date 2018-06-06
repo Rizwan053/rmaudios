@@ -33,6 +33,13 @@
 	<script src="/js/bootstrap.js"></script>
 
 	<script src="/js/scripts.js"></script>
+	
+	<script>
+	$('.alert').delay(3000).slideUp(500);
+	// $('.footer-section').click(function(){
+	// });
+
+	</script>
 
 
 </body>
