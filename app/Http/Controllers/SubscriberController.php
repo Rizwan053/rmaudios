@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class SubscriberController extends Controller
 {
+
+    // public function __construct()
+    // {
+    //     $this->middleware('admin',['except'=>'store']);
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -37,15 +42,7 @@ class SubscriberController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'email' => 'required|string|email|max:255',
-            
-        ]);
-
-        $input = $request->all();
-
-        $subscriber = Subscriber::create($input)->save();
-        return redirect()->back()->with('success','Subscribe Succesfully! Welcome to the Family');
+        
 
     }
 
@@ -93,5 +90,18 @@ class SubscriberController extends Controller
     {
         Subscriber::findorFail($id)->delete();
         return redirect()->back()->with('delete','Subscriber Removed Succesfully !!');
+    }
+
+
+    public function subscribe(Request $request){
+        $request->validate([
+            'email' => 'required|string|email|max:255',
+
+        ]);
+
+        $input = $request->all();
+
+        $subscriber = Subscriber::create($input)->save();
+        return redirect()->back()->with('success', 'Subscribe Succesfully! Welcome to the Family');
     }
 }

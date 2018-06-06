@@ -5,9 +5,9 @@
 				<div class="col-md-12">
 					<div class="footer-section">
 
-						<a class="logo" href="#"><img src="/images/logo.png" alt="Logo Image"></a>
-						<p class="copyright">Bona @ 2017. All rights reserved.</p>
-						<p class="copyright">Designed by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+						<a class="logo" href="/"><b>RM Audio's</b></a>
+						<p class="copyright">Copyrights @ 2017-2018. All rights reserved.</p>
+						<p class="copyright">Designed by <a href="" target="_blank">DJ Rizwan Mixing</a></p>
 						<ul class="icons">
 							<li><a href="#"><i class="fab fa-facebook"></i></a></li>
 								<li><a href="#"><i class="fab fa-twitter"></i></a></li>

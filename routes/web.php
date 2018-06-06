@@ -15,6 +15,11 @@ use App\Subscriber;
 |
 */
 
+Route::resource('/search', 'SearchController');
+
+
+
+
 Route::get('/', function () {
     $posts = Post::orderBy('created_at', 'desc')->paginate(10);
     $categories = Category::all()->sortByDesc('created_at');
@@ -49,13 +54,15 @@ Route::get('/post/{slug}', function ($slug) {
 });
 
 
-Route::resource('/search', 'SearchController');
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+
+Route::post('subscribe', ['as' => 'home.subscribe', 'uses' => 'SubscriberController@subscribe']);
 
 
 Route::group(['middleware' => 'admin'], function () {
@@ -76,5 +83,7 @@ Route::resource('/admin/categories', 'CategoryController');
 
 
 });
+
+
 
 

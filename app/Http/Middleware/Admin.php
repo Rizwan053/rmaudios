@@ -23,6 +23,7 @@ class Admin
 
             }
         }
+        
         return redirect('/home');
 
         }

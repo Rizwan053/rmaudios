@@ -7,7 +7,8 @@
 	<script src="js/bootstrap-checkbox-radio.js"></script>
 
 	<!--  Charts Plugin -->
-	<script src="/js/chartist.min.js"></script>
+	{{-- <script src="/js/chartist.min.js"></script> --}}
+	<script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
 
     <!--  Notifications Plugin    -->
     <script src="/js/bootstrap-notify.js"></script>
@@ -17,12 +18,16 @@
 
     <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
 	<script src="/js/paper-dashboard.js"></script>
-
 	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-	<script src="/js/demo.js"></script>
+	{{-- <script src="/js/demo.js"></script> --}}
 	<script>
 			$('.alert').delay(3000).slideUp(500);
+
+
+
 	</script>
+
+	@yield('scripts')
 
 	<script type="text/javascript">
     	$(document).ready(function(){

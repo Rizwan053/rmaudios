@@ -22,7 +22,7 @@
 							<div class="input-area">
 
 
-								{!!Form::open(['method'=>'POST','action'=>'SubscriberController@store']) !!}
+								{!!Form::open(['method'=>'POST','action'=>'SubscriberController@subscribe']) !!}
 
 								{!! Form::text('email',null,['class'=>'email-input', 'placeholder'=>'Enter you Email']) !!}
 								{{ Form::button('<i class="fa fa-check-circle"></i>', ['type' => 'submit', 'class' => 'submit-btn'] )  }}

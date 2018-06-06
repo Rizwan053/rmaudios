@@ -25,7 +25,8 @@
 
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="/css/demo.css" rel="stylesheet" />
+    {{-- <link href="/css/demo.css" rel="stylesheet" /> --}}
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
 
 
     <!--  Fonts and icons     -->

@@ -1,7 +1,11 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<title>TITLE</title>
+
+		<link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/images/favicon.png">
+
+	<title>RM Audios</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8">
@@ -36,7 +40,7 @@
 	<header>
 		<div class="container-fluid position-relative no-side-padding">
 
-			<a href="/" class="logo"><img src="/images/logo.png" alt="Logo Image"></a>
+			<a href="/" class="logo "><strong>RM Audio's</strong></a>
 
 			<div class="menu-nav-icon" data-nav-menu="#main-menu"><i class="fas fa-bars"></i></div>
 

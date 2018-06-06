@@ -27,10 +27,13 @@
 
 							<h3 class="title"><b>{{$post->title ? $post->title : ''}}</b></h3>
 							{{-- <h6 class="date">{{$post->created_at ? $post->created_at->format('d M Y') : ''}}</h6><hr> --}}
+							<hr>
 							
 
 							<div class="post-image"><img src="{{$post->photo ? $post->photo->path : ''}}" alt="Blog Image"></div>
-
+						<hr>
+							<div><a href="{{$post->url ? $post->url : ''}}"><button class="form-control btn btn-lg btn-primary">Download Now</button></a></div>
+							<hr>
 							<p class="para">{{$post->body ? $post->body : '' }}</p>
 
 							<ul class="tags">
@@ -90,7 +93,7 @@
 
 									<div class="blog-info">
 
-									<h4 class="title"><a href="/post/{{$post->id}}"><b>{{$post->title ? $post->title : ''}}</b></a></h4>
+									<h4 class="title"><a href="/post/{{$post->slug}}"><b>{{$post->title ? $post->title : ''}}</b></a></h4>
 
 										<ul class="post-footer">
 											<li><a href="#"><i class="fas fa-heart"></i>57</a></li>
@@ -115,124 +118,33 @@
 			<div class="row">
 
 				<div class="col-lg-8 col-md-12">
-					<div class="comment-form">
-						<form method="post">
-							<div class="row">
+					<div id="disqus_thread"></div>
+<script>
 
-								<div class="col-sm-6">
-									<input type="text" aria-required="true" name="contact-form-name" class="form-control"
-										placeholder="Enter your name" aria-invalid="true" required >
-								</div><!-- col-sm-6 -->
-								<div class="col-sm-6">
-									<input type="email" aria-required="true" name="contact-form-email" class="form-control"
-										placeholder="Enter your email" aria-invalid="true" required>
-								</div><!-- col-sm-6 -->
-
-								<div class="col-sm-12">
-									<textarea name="contact-form-message" rows="2" class="text-area-messge form-control"
-										placeholder="Enter your comment" aria-required="true" aria-invalid="false"></textarea >
-								</div><!-- col-sm-12 -->
-								<div class="col-sm-12">
-									<button class="submit-btn" type="submit" id="form-submit"><b>POST COMMENT</b></button>
-								</div><!-- col-sm-12 -->
-
-							</div><!-- row -->
-						</form>
-					</div><!-- comment-form -->
-
-					<h4><b>COMMENTS(12)</b></h4>
-
-					<div class="commnets-area">
-
-						<div class="comment">
-
-							<div class="post-info">
-
-								<div class="left-area">
-									<a class="avatar" href="#"><img src="images/avatar-1-120x120.jpg" alt="Profile Image"></a>
-								</div>
-
-								<div class="middle-area">
-									<a class="name" href="#"><b>Katy Liu</b></a>
-									<h6 class="date">on Sep 29, 2017 at 9:48 am</h6>
-								</div>
-
-								<div class="right-area">
-									<h5 class="reply-btn" ><a href="#"><b>REPLY</b></a></h5>
-								</div>
-
-							</div><!-- post-info -->
-
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-								ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur
-								Ut enim ad minim veniam</p>
-
-						</div>
-
-						<div class="comment">
-							<h5 class="reply-for">Reply for <a href="#"><b>Katy Lui</b></a></h5>
-
-							<div class="post-info">
-
-								<div class="left-area">
-									<a class="avatar" href="#"><img src="images/avatar-1-120x120.jpg" alt="Profile Image"></a>
-								</div>
-
-								<div class="middle-area">
-									<a class="name" href="#"><b>Katy Liu</b></a>
-									<h6 class="date">on Sep 29, 2017 at 9:48 am</h6>
-								</div>
-
-								<div class="right-area">
-									<h5 class="reply-btn" ><a href="#"><b>REPLY</b></a></h5>
-								</div>
-
-							</div><!-- post-info -->
-
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-								ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur
-								Ut enim ad minim veniam</p>
-
-						</div>
-
-					</div><!-- commnets-area -->
-
-					<div class="commnets-area ">
-
-						<div class="comment">
-
-							<div class="post-info">
-
-								<div class="left-area">
-									<a class="avatar" href="#"><img src="images/avatar-1-120x120.jpg" alt="Profile Image"></a>
-								</div>
-
-								<div class="middle-area">
-									<a class="name" href="#"><b>Katy Liu</b></a>
-									<h6 class="date">on Sep 29, 2017 at 9:48 am</h6>
-								</div>
-
-								<div class="right-area">
-									<h5 class="reply-btn" ><a href="#"><b>REPLY</b></a></h5>
-								</div>
-
-							</div><!-- post-info -->
-
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-								ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur
-								Ut enim ad minim veniam</p>
-
-						</div>
-
-					</div><!-- commnets-area -->
-
-					<a class="more-comment-btn" href="#"><b>VIEW MORE COMMENTS</a>
-
-				</div><!-- col-lg-8 col-md-12 -->
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://myapp-4.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            
 
 			</div><!-- row -->
 
 		</div><!-- container -->
 	</section>
-
+@section('scripts')
+<script id="dsq-count-scr" src="//myapp-4.disqus.com/count.js" async></script>
+@stop
 @include('includes.front_footer')
