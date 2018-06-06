@@ -1,5 +1,8 @@
 <?php
 
+use App\Post;
+use App\Category;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,8 +15,37 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $posts = Post::orderBy('created_at', 'desc')->paginate(10);
+    $categories = Category::all()->sortByDesc('created_at');
+    
+    return view('front.index', compact('posts', 'categories'));
 });
+
+Route::get('/category/{id}', function($id){
+            $posts = Post::where('category_id','=',$id)->paginate(10);
+            $categories = Category::all()->sortByDesc('created_at');
+            
+            return view('front.category', compact('posts','categories'));
+});
+
+
+// Route::get('post/{id}', ['as' => 'home.post', 'uses' => 'PostController@post']);
+
+Route::get('/post/{slug}', function ($slug) {
+    $post = Post::whereSlug($slug)->firstorFail();
+    
+    $posts = Post::all()->take(3)->sortByDesc('created_at');
+    $categories = Category::all()->sortByDesc('created_at');
+    
+
+    // $post = Post::whereId($id)->paginate(1);
+    return view('front.post', compact('post', 'posts', 'categories'));
+});
+
+
+Route::resource('/search', 'SearchController');
+
+
 
 
 Auth::routes();

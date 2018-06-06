@@ -16,7 +16,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(10)->sortbyDesc('created_at');
+        $posts = Post::orderBy('created_at', 'desc')->paginate(10);
+        // $posts->sortbyDesc('created_at');
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -63,7 +64,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+   //
     }
 
     /**
@@ -132,4 +133,10 @@ class PostController extends Controller
         
         
     }
+
+    // public function post($id){
+    // $post = Post::findorFail($id);
+    // return view('front.post', compact('post'));
+
+    // }
 }
